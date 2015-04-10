@@ -51,7 +51,7 @@ extern "C" {
 typedef struct _cv_jit_contours 
 {
 	t_object				ob;
-	float*					data;			//!< Data in the matrix
+	long*					data;			//!< Data in the matrix
 	int						numElements;	//!< Elements allocated
 } t_cv_jit_contours;
 
@@ -87,13 +87,12 @@ t_jit_err cv_jit_contours_init(void)
   	jit_attr_setlong(io,_jit_sym_maxplanecount,1);
   	jit_attr_setlong(io,_jit_sym_mindim,2);
   	jit_attr_setlong(io,_jit_sym_maxdim,2);
-  	jit_attr_setsym(io,_jit_sym_types,_jit_sym_float32);
    	
    	jit_attr_setlong(output,_jit_sym_minplanecount,3);  //3 planes:
   	jit_attr_setlong(output,_jit_sym_maxplanecount,3);	//Blob ID, x-coord, y-coord
   	jit_attr_setlong(output,_jit_sym_mindim,1); //Only one dimension
   	jit_attr_setlong(output,_jit_sym_maxdim,1);
-  	jit_attr_setsym(output,_jit_sym_types,_jit_sym_float32); //Coordinates are returned with sub-pixel accuracy
+  	jit_attr_setsym(output,_jit_sym_types,_jit_sym_long); //Coordinates are returned with sub-pixel accuracy
    	   	
 	jit_class_addadornment(_cv_jit_contours_class,mop);
 	
@@ -116,11 +115,7 @@ t_jit_err cv_jit_contours_matrix_calc(t_cv_jit_contours *x, void *inputs, void *
 	t_jit_matrix_info in1_minfo, out_minfo;
 	char *in1_bp;
 	void *in1_matrix, *out_matrix;
-	int match_count;
-	float *in1;
 	CvMat in_mat1;
-	
-	float *matches = 0, *current_match;
 		
 	//Get pointers to matrices
 	in1_matrix 	= jit_object_method(inputs,_jit_sym_getindex,0);
@@ -144,16 +139,6 @@ t_jit_err cv_jit_contours_matrix_calc(t_cv_jit_contours *x, void *inputs, void *
 		if(in1_minfo.planecount != 1)
 		{
 			err = JIT_ERR_MISMATCH_PLANE;
-			goto out;
-		}
-		if(in1_minfo.type != _jit_sym_float32)
-		{
-			err = JIT_ERR_MISMATCH_TYPE;
-			goto out;
-		}
-		if((in1_minfo.dim[0] != 70)&&(in1_minfo.dim[0] != 134)){
-			err = JIT_ERR_GENERIC;
-			error("Wrong input size, make sure input matrix comes from cv.jit.surf!");
 			goto out;
 		}
 		
@@ -181,12 +166,12 @@ t_jit_err cv_jit_contours_matrix_calc(t_cv_jit_contours *x, void *inputs, void *
 		if (total*3 > x->numElements)
 		{
 			delete[] x->data;
-			x->data = new float[total*3];
+			x->data = new long[total*3];
 			x->numElements = total*3;
 		}
 		
 		// Fill...
-		float *target = x->data;
+		long *target = x->data;
 		int numContour = 0;
 		for (auto &pointList : contours)
 		{
@@ -204,8 +189,8 @@ t_jit_err cv_jit_contours_matrix_calc(t_cv_jit_contours *x, void *inputs, void *
 		out_minfo.dim[0] = total;
 		out_minfo.dimcount = 1;
 		out_minfo.planecount = 3;
-		out_minfo.type = _jit_sym_float32;
-		out_minfo.dimstride[0] = 3 * sizeof(float);
+		out_minfo.type = _jit_sym_long;
+		out_minfo.dimstride[0] = 3 * sizeof(long);
 		out_minfo.dimstride[1] = out_minfo.size = out_minfo.dim[0] * out_minfo.dimstride[0];
 		out_minfo.flags = JIT_MATRIX_DATA_REFERENCE | JIT_MATRIX_DATA_FLAGS_USE;
 		jit_object_method(out_matrix,_jit_sym_setinfo_ex, &out_minfo);
@@ -226,7 +211,7 @@ t_cv_jit_contours *cv_jit_contours_new(void)
 	t_cv_jit_contours *x;
 	
 	if ((x=(t_cv_jit_contours *)jit_object_alloc(_cv_jit_contours_class))) {
-		x->data = new float[1000];
+		x->data = new long[1000];
 		x->numElements = 1000;
 	} else {
 		x = NULL;
