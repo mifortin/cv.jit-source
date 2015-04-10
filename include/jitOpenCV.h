@@ -32,6 +32,9 @@ in Jitter externals.
 */
 
 
+// Needed clip function
+#define CLIP(x,min,max)	( x < min ? min : (x > max ? max : x))
+
 
 /*This is simply a utility function for converting a Jitter matrix into a CvMat.*/
 

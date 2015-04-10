@@ -26,3 +26,13 @@
 *.exe
 *.out
 *.app
+
+# SVN
+.svn
+
+# OS X temp files
+.DS_Store
+
+# Who cares about the build...
+/Build
+
