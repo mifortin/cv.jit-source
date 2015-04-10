@@ -49,6 +49,7 @@
 				B4E73DB40E188A4C001E52BE /* PBXTargetDependency */,
 				B4A0277211BBE11A0067494F /* PBXTargetDependency */,
 				B4A0277411BBE11E0067494F /* PBXTargetDependency */,
+				4355BB791AD87F4800E36D06 /* PBXTargetDependency */,
 			);
 			name = "Build all";
 			productName = "Build all";
@@ -953,8 +954,8 @@
 		4355BB731AD8783200E36D06 /* libzlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4355B8421AD8782900E36D06 /* libzlib.a */; };
 		4355BB741AD8783200E36D06 /* libzlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4355B8421AD8782900E36D06 /* libzlib.a */; };
 		4355BB751AD8783200E36D06 /* libzlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4355B8421AD8782900E36D06 /* libzlib.a */; };
-		43B4A3921AD82F1800F18A30 /* cv.jit.surf.match.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B460572210E99986002B2AD8 /* cv.jit.surf.match.cpp */; };
-		43B4A3931AD82F1800F18A30 /* max.cv.jit.surf.match.c in Sources */ = {isa = PBXBuildFile; fileRef = B460572310E99986002B2AD8 /* max.cv.jit.surf.match.c */; };
+		4355BB7E1AD8804600E36D06 /* cv.jit.contours.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4355BB7B1AD8804600E36D06 /* cv.jit.contours.cpp */; };
+		4355BB801AD8804600E36D06 /* max.cv.jit.contours.c in Sources */ = {isa = PBXBuildFile; fileRef = 4355BB7D1AD8804600E36D06 /* max.cv.jit.contours.c */; };
 		B45339F310EDAC94002BE988 /* cv.jit.opticalflow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B45339F210EDAC94002BE988 /* cv.jit.opticalflow.cpp */; };
 		B4584BFD10100DFB00DA7DA9 /* cv.jit.threshold.c in Sources */ = {isa = PBXBuildFile; fileRef = B4584BF910100DFB00DA7DA9 /* cv.jit.threshold.c */; };
 		B4584BFE10100DFB00DA7DA9 /* max.cv.jit.threhsold.c in Sources */ = {isa = PBXBuildFile; fileRef = B4584BFA10100DFB00DA7DA9 /* max.cv.jit.threhsold.c */; };
@@ -1040,6 +1041,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4355BB781AD87F4800E36D06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 43B4A38F1AD82F1800F18A30;
+			remoteInfo = cv.jit.contours;
+		};
 		B4A0277111BBE11A0067494F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
@@ -1319,6 +1327,9 @@
 		4355B8401AD8782900E36D06 /* libopencv_video.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_video.a; path = ../../lib/libopencv_video.a; sourceTree = "<group>"; };
 		4355B8411AD8782900E36D06 /* libopencv_videostab.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_videostab.a; path = ../../lib/libopencv_videostab.a; sourceTree = "<group>"; };
 		4355B8421AD8782900E36D06 /* libzlib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzlib.a; path = ../../lib/libzlib.a; sourceTree = "<group>"; };
+		4355BB7B1AD8804600E36D06 /* cv.jit.contours.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cv.jit.contours.cpp; sourceTree = "<group>"; };
+		4355BB7C1AD8804600E36D06 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4355BB7D1AD8804600E36D06 /* max.cv.jit.contours.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = max.cv.jit.contours.c; sourceTree = "<group>"; };
 		43B4A3AF1AD82F1800F18A30 /* cv.jit.contours.mxo */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cv.jit.contours.mxo; sourceTree = BUILT_PRODUCTS_DIR; };
 		B45339F210EDAC94002BE988 /* cv.jit.opticalflow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cv.jit.opticalflow.cpp; sourceTree = "<group>"; };
 		B4584BF910100DFB00DA7DA9 /* cv.jit.threshold.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cv.jit.threshold.c; path = ../../src/cv.jit.threshold/cv.jit.threshold.c; sourceTree = SOURCE_ROOT; };
@@ -2621,6 +2632,7 @@
 		089C166AFE841209C02AAC07 /* cv_jit */ = {
 			isa = PBXGroup;
 			children = (
+				4355BB7A1AD8804500E36D06 /* cv.jit.contours */,
 				B4C3B0D110EB82AC005A82E9 /* cv.jit.opticalflow */,
 				B460570F10E9993C002B2AD8 /* cv.jit.surf.match */,
 				B49818B31071DC2400FACBCA /* Utilities */,
@@ -2742,6 +2754,17 @@
 				43B4A3AF1AD82F1800F18A30 /* cv.jit.contours.mxo */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		4355BB7A1AD8804500E36D06 /* cv.jit.contours */ = {
+			isa = PBXGroup;
+			children = (
+				4355BB7B1AD8804600E36D06 /* cv.jit.contours.cpp */,
+				4355BB7C1AD8804600E36D06 /* Info.plist */,
+				4355BB7D1AD8804600E36D06 /* max.cv.jit.contours.c */,
+			);
+			name = cv.jit.contours;
+			path = ../../src/cv.jit.contours;
 			sourceTree = "<group>";
 		};
 		B4584BE810100D2D00DA7DA9 /* cv.jit.treshold */ = {
@@ -4124,8 +4147,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B4A3921AD82F1800F18A30 /* cv.jit.surf.match.cpp in Sources */,
-				43B4A3931AD82F1800F18A30 /* max.cv.jit.surf.match.c in Sources */,
+				4355BB7E1AD8804600E36D06 /* cv.jit.contours.cpp in Sources */,
+				4355BB801AD8804600E36D06 /* max.cv.jit.contours.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4476,6 +4499,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4355BB791AD87F4800E36D06 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 43B4A38F1AD82F1800F18A30 /* cv.jit.contours */;
+			targetProxy = 4355BB781AD87F4800E36D06 /* PBXContainerItemProxy */;
+		};
 		B4A0277211BBE11A0067494F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B4584BE910100D4100DA7DA9 /* cv.jit.threshold */;
@@ -4685,7 +4713,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = cv.jit.contours.plist;
 				INSTALL_PATH = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4730,7 +4757,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = cv.jit.contours.plist;
 				INSTALL_PATH = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4756,6 +4782,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEPLOYMENT_LOCATION = YES;
@@ -4809,6 +4836,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)";
 				DEAD_CODE_STRIPPING = YES;
 				DEPLOYMENT_LOCATION = YES;
